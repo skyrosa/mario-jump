@@ -7,6 +7,8 @@
     let jumpInProgress = false;
     let score = 0;
     let passedTunel = false;
+    let jumpSound = new Audio('./audio/jump-sound.mp3');
+    let gameOverSound = new Audio('./audio/game-over-sound.mp3');
 
     const bgMusic = new Audio('./audio/backgroundsound.mp3');
     bgMusic.loop = true;
@@ -28,6 +30,7 @@
             jumpInProgress = false;
             mario.src = "./img/mario-run.gif";
         }, 770);
+        jumpSound.play();
     };
 
     restart.style.display = "none";
@@ -50,25 +53,36 @@
       tunel.style.animationPlayState = "running";
       tunel.style.right = "90%";
 
+      if (bgMusic.ended) {
+        bgMusic.currentTime = 0;
+      }
+      bgMusic.play();
+
       restart.style.display = "none";
     });
-
-    function checkCollisions() {
-
-      if (tunel.offsetLeft <= mario.offsetLeft + mario.offsetWidth &&
-          tunel.offsetLeft + tunel.offsetWidth >= mario.offsetLeft &&
-          tunel.offsetTop <= mario.offsetTop + mario.offsetHeight &&
-          tunel.offsetTop + tunel.offsetHeight >= mario.offsetTop) {
-        
-        passedTunel = true;
-        tunel.style.animationPlayState = "paused";
-        mario.style.animationPlayState = "paused";
     
+    function checkCollisions() {
+      
+      if (tunel.offsetLeft <= mario.offsetLeft + mario.offsetWidth &&
+        tunel.offsetLeft + tunel.offsetWidth >= mario.offsetLeft &&
+        tunel.offsetTop <= mario.offsetTop + mario.offsetHeight &&
+        tunel.offsetTop + tunel.offsetHeight >= mario.offsetTop) {
+          
+          passedTunel = true;
+          tunel.style.animationPlayState = "paused";
+          mario.style.animationPlayState = "paused";
+
+          bgMusic.pause();
+          gameOverSound.play();
+          
+          gameOverSound.addEventListener("ended", () => {
+            bgMusic.play();
+          });
+
         restart.style.display = "block";
+
       }
     }
-
-
 
     const loop = setInterval(() => {
       scoreCount.textContent = "Score: " + score;
