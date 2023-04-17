@@ -112,6 +112,24 @@
     z-index: 1;
 }
 
+.high-score {
+    position: absolute;
+    background-color: transparent;
+    width: 60px;
+    height: 60px;
+    top: 8.3%;
+    left: 4%;
+    color: #ede900;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+    font-family: 'Super Mario World Text Box', sans-serif;
+    font-size: 30px;
+    z-index: 1;
+}
+
 @keyframes tunel-animation {
     from {
         right: -5%;
