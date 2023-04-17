@@ -1,7 +1,7 @@
 # Super Mario Jump
 
 ### This project it's a **Super Mario-themed game**.
-### It's a 2D game of running and jump throught out obstacles made with *JavaScript*.
+### It's a 2D game of running and jumping over obstacles made with *JavaScript*.
 
 ### This project was made based at the video tutorial of the ["Manual do Dev"](https://www.youtube.com/watch?v=r9buAwVBDhA&list=TLPQMTUwNDIwMjNjmWfuTuU70w&index=9) channel on Youtube. 
 
