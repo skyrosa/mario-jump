@@ -91,7 +91,7 @@
     width: 80px;
     bottom: -0.75%;
     right: 90%;
-    animation: tunel-animation 3s linear infinite;
+    animation: tunelAnimation 3s linear infinite;
 }
 
 .score {
@@ -130,7 +130,7 @@
     z-index: 1;
 }
 
-@keyframes tunel-animation {
+@keyframes tunelAnimation {
     from {
         right: -5%;
     }
